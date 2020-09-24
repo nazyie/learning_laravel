@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\RouteController;
+use App\Http\Controllers\MiddlewareController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,3 +40,13 @@ Route::get('/lesson-1/{id}', function ($id) {
   return 'User'.$id;
 });
 
+////////////////
+// Middleware //
+////////////////
+
+Route::get('/lesson-2/middleware', [MiddlewareController::class, 'index']);
+Route::get('lesson-2/middleware-testing', 
+  ['middleware' => 'carCheck', function() {
+    return 'You can access the car from router';
+  }]
+);
