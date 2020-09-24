@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\RouteController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,3 +18,24 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+/////////////////
+// Web Routing //
+/////////////////
+
+Route::get('/lesson-1/routing', [RouteController::class, 'index']);
+Route::match(['get','post'], '/lesson-1/routing-multiple-method', [RouteController::class, 'about']);
+Route::any('/lesson-1/routing-any-method', [RouteController::class, 'routing_any_method']);
+
+Route::redirect('/lesson-1/redirect', '/');
+Route::redirect('/lesson-1/redirect-with-code', '/', 302);
+
+Route::view('/lesson-1/view-route', 'lesson-1/sample-view');
+Route::view('/lesson-1/view-route-with-data', 'lesson-1/sample-view', ['name' => 'Engku Nazri']);
+
+Route::get('/lesson-1/{optional_param?}', [RouteController::class, 'optional']);
+
+Route::get('/lesson-1/{id}', function ($id) {
+  return 'User'.$id;
+});
+
