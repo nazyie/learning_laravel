@@ -4,17 +4,8 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\RouteController;
 use App\Http\Controllers\MiddlewareController;
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+use App\Http\Controllers\LearningController;
+use App\Http\Controllers\LearningResourceController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -50,3 +41,17 @@ Route::get('lesson-2/middleware-testing',
     return 'You can access the car from router';
   }]
 );
+
+////////////////
+// Controller //
+////////////////
+
+Route::get('/lesson-3/basic-controller', [LearningController::class, 'starter']);
+
+// resource controller
+Route::get('/lesson-3/resource', [LearningResourceController::class, 'index']);
+Route::get('/lesson-3/resource/create', [LearningResourceController::class, 'create']);
+Route::post('/lesson-3/resource', [LearningResourceController::class, 'store']);
+Route::get('/lesson-3/resource/{user}/edit', [LearningResourceController::class, 'edit']);
+Route::patch('/lesson-3/resource/{user}', [LearningResourceController::class, 'update']);
+Route::delete('/lesson-3/resource/{user}', [LearningResourceController::class, 'delete']);
