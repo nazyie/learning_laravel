@@ -7,6 +7,7 @@ use App\Http\Controllers\MiddlewareController;
 use App\Http\Controllers\LearningController;
 use App\Http\Controllers\LearningResourceController;
 use App\Http\Controllers\ResponsesController;
+use App\Http\Controllers\URLGenerationController;
 use App\Http\Controllers\ViewController;
 
 Route::get('/', function () {
@@ -76,3 +77,11 @@ Route::get('/lesson-5/response/json', [ResponsesController::class, 'json']);
 //////////
 
 Route::get('/lesson-6/view', [ViewController::class, 'index']);
+
+////////////////////
+// URL Generation //
+////////////////////
+
+Route::get('/lesson-7/index', [URLGenerationController::class, 'index'])->name('url.name');
+Route::get('/lesson-7/signedURL', [URLGenerationController::class, 'create']);
+Route::get('/lesson-7/tempURL', [URLGenerationController::class, 'createTemporarySignedRoute']);
