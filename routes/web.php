@@ -7,6 +7,7 @@ use App\Http\Controllers\MiddlewareController;
 use App\Http\Controllers\LearningController;
 use App\Http\Controllers\LearningResourceController;
 use App\Http\Controllers\ResponsesController;
+use App\Http\Controllers\ViewController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -57,7 +58,6 @@ Route::get('/lesson-3/resource/{user}/edit', [LearningResourceController::class,
 Route::patch('/lesson-3/resource/{user}', [LearningResourceController::class, 'update']);
 Route::delete('/lesson-3/resource/{user}', [LearningResourceController::class, 'delete']);
 
-
 ///////////////////
 // HTTP response //
 ///////////////////
@@ -70,3 +70,9 @@ Route::get('/lesson-5/response/response-object', [ResponsesController::class, 'r
 Route::get('/lesson-5/response/redirect/{type}', [ResponsesController::class, 'redirects']);
 Route::get('/lesson-5/response/view', [ResponsesController::class, 'view']);
 Route::get('/lesson-5/response/json', [ResponsesController::class, 'json']);
+
+//////////
+// View //
+//////////
+
+Route::get('/lesson-6/view', [ViewController::class, 'index']);
