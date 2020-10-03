@@ -9,6 +9,7 @@ use App\Http\Controllers\LearningResourceController;
 use App\Http\Controllers\ResponsesController;
 use App\Http\Controllers\URLGenerationController;
 use App\Http\Controllers\ViewController;
+use App\Http\Controllers\SessionController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -85,3 +86,16 @@ Route::get('/lesson-6/view', [ViewController::class, 'index']);
 Route::get('/lesson-7/index', [URLGenerationController::class, 'index'])->name('url.name');
 Route::get('/lesson-7/signedURL', [URLGenerationController::class, 'create']);
 Route::get('/lesson-7/tempURL', [URLGenerationController::class, 'createTemporarySignedRoute']);
+
+/////////////
+// Session //
+/////////////
+
+Route::get('/lesson-8/index', [SessionController::class, 'index']);
+Route::get('/lesson-8/clear', [SessionController::class, 'clear']);
+Route::get('/lesson-8/create', [SessionController::class, 'create']);
+
+// flash data
+Route::get('/lesson-8/createFlash', [SessionController::class, 'createFlash']);
+Route::get('/lesson-8/showFlash', [SessionController::class, 'showFlash']);
+
