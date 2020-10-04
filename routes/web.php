@@ -10,6 +10,7 @@ use App\Http\Controllers\ResponsesController;
 use App\Http\Controllers\URLGenerationController;
 use App\Http\Controllers\ViewController;
 use App\Http\Controllers\SessionController;
+use App\Http\Controllers\ValidationController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -99,3 +100,11 @@ Route::get('/lesson-8/create', [SessionController::class, 'create']);
 Route::get('/lesson-8/createFlash', [SessionController::class, 'createFlash']);
 Route::get('/lesson-8/showFlash', [SessionController::class, 'showFlash']);
 
+////////////////
+// Validation //
+////////////////
+
+Route::get('/lesson-9/index', [ValidationController::class, 'index']);
+Route::post('/lesson-9/submit', [ValidationController::class, 'store']);
+Route::post('/lesson-9/submitRequest', [ValidationController::class, 'storeRequest']);
+Route::post('/lesson-9/customMessage', [ValidationController::class, 'customMessage']);
