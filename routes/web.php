@@ -6,6 +6,7 @@ use App\Http\Controllers\RouteController;
 use App\Http\Controllers\MiddlewareController;
 use App\Http\Controllers\LearningController;
 use App\Http\Controllers\LearningResourceController;
+use App\Http\Controllers\PaginationController;
 use App\Http\Controllers\ResponsesController;
 use App\Http\Controllers\URLGenerationController;
 use App\Http\Controllers\ViewController;
@@ -108,3 +109,10 @@ Route::get('/lesson-9/index', [ValidationController::class, 'index']);
 Route::post('/lesson-9/submit', [ValidationController::class, 'store']);
 Route::post('/lesson-9/submitRequest', [ValidationController::class, 'storeRequest']);
 Route::post('/lesson-9/customMessage', [ValidationController::class, 'customMessage']);
+
+//////////////
+// Paginate //
+//////////////
+
+Route::get('/lesson-10/paginate', [PaginationController::class, 'index']);
+Route::get('/lesson-10/samplePaginate', [PaginationController::class, 'samplePagination']);
